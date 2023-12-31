@@ -1,18 +1,9 @@
-import { useEffect, useState } from "react";
+import useTime from "../Hooks/useTimehooks";
 
 function CurrentTimer() {
-  const [currentTime, setCurrentTime] = useState({
-    Hours: new Date().getHours(),
-    minute: new Date().getMinutes(),
-    second: new Date().getSeconds(),
-  });
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-        setCurrentTime({Hours: new Date().getHours(), minute: new Date().getMinutes(), second: new Date().getSeconds()})
-    }, 1000)
-    return () => clearInterval(interval);
-  }, []);
+  
+  const {currentTime} = useTime();
 
   return (
     <div className="w-full h-auto flex flex-wrap justify-evenly items-center">
